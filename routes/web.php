@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home.home');
-});
+Route::get('/', 'WelcomeController@index')->name('home');
 
 Route::get('/login', function () {
     return view('login.login');

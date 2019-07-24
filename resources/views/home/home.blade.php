@@ -43,101 +43,17 @@
     <div class="container">
         <div class="section category-items job-category-items  text-center">
             <ul class="category-list">	
-                <li class="category-item">
-                    <a href="job-list.html">
+
+               @foreach($categories as $category)
+                <li class="category-item col-sm-3">
+                    <a href="">
                         <div class="category-icon"><img src="{{ asset('asset/images/icon/1.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Accounting/Finance</span>
-                        <span class="category-quantity">(1298)</span>
+                        <span class="category-title">{{ $category->name }}</span>
+                        <span class="category-quantity">(0)</span>
                     </a>
                 </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/2.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Education/Training</span>
-                        <span class="category-quantity">(76212)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/3.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Engineer/Architects</span>
-                        <span class="category-quantity">(212)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/4.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Garments/Textile</span>
-                        <span class="category-quantity">(972)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/5.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">HR/Org. Development</span>
-                        <span class="category-quantity">(1298)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/6.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Design/Creative</span>
-                        <span class="category-quantity">(76212)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/7.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Research/Consultancy</span>
-                        <span class="category-quantity">(1298)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/8.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Medical/Pharma</span>
-                        <span class="category-quantity">(76212)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/9.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Music & Arts</span>
-                        <span class="category-quantity">(212)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/10.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Marketing/Sales</span>
-                        <span class="category-quantity">(1298)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/11.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Production/Operation</span>
-                        <span class="category-quantity">(124)</span>
-                    </a>
-                </li><!-- category-item -->
-                
-                <li class="category-item">
-                    <a href="job-list.html">
-                        <div class="category-icon"><img src="{{ asset('asset/images/icon/12.png') }}" alt="images" class="img-fluid"></div>
-                        <span class="category-title">Miscellaneous</span>
-                        <span class="category-quantity">(972)</span>
-                    </a>
-                </li><!-- category-item -->					
+                @endforeach
+
             </ul>				
         </div><!-- category ad -->			
 
