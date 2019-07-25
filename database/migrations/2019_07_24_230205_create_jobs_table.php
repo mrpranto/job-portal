@@ -18,9 +18,11 @@ class CreateJobsTable extends Migration
             $table->unsignedBigInteger('employer_id');
             $table->unsignedBigInteger('category_id');
             $table->string('title');
+            $table->string('post_name');
             $table->text('description');
             $table->decimal('salary',10,2);
             $table->string('country');
+            $table->string('job_type');
             $table->timestamps();
             $table->foreign('employer_id')->references('id')->on('employers');
             $table->foreign('category_id')->references('id')->on('categories');

@@ -25,6 +25,14 @@ class Job extends Model
         });
     }
 
+    public function scopeOrderDesc($q){
+        return $q->orderBy('id','desc')->get();
+    }
+
+    public function employer(){
+        return $this->belongsTo(Employer::class);
+    }
+
     public function job_applies(){
         return $this->hasMany(JobApply::class);
     }
