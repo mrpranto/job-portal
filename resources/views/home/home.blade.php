@@ -49,7 +49,7 @@
                     <a href="">
                         <div class="category-icon"><img src="{{ asset('asset/images/icon/1.png') }}" alt="images" class="img-fluid"></div>
                         <span class="category-title">{{ $category->name }}</span>
-                        <span class="category-quantity">(0)</span>
+                        <span class="category-quantity">({{ $category->jobs->count() }})</span>
                     </a>
                 </li><!-- category-item -->
                 @endforeach
@@ -76,12 +76,12 @@
                         <div class="item-info">
                             <div class="item-image-box">
                                 <div class="item-image">
-                                    <a href="job-details.html"><img src="{{ asset('asset/images/job/4.png') }}" alt="Image" class="img-fluid"></a>
+                                    <a href="{{ route('job.details',$job->id) }}"><img src="{{ asset('asset/images/job/4.png') }}" alt="Image" class="img-fluid"></a>
                                 </div><!-- item-image -->
                             </div>
 
                             <div class="ad-info">
-                                <span><a href="job-details.html" class="title">{{ $job->title }}</a> @ <a href="#">{{ $job->employer->company_name }}</a></span>
+                                <span><a href="{{ route('job.details',$job->id) }}" class="title">{{ $job->title }}</a> @ <a href="#">{{ $job->employer->company_name }}</a></span>
                                 <div class="ad-meta">
                                     <ul>
                                         <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>{{ $job->country }}</a></li>
@@ -92,7 +92,7 @@
                                 </div><!-- ad-meta -->									
                             </div><!-- ad-info -->
                             <div class="button">
-                                <a href="#" class="btn btn-primary">Apply Now</a>
+                                <a href="{{ route('job.details',$job->id) }}" class="btn btn-primary">Details</a>
                             </div>
                         </div><!-- item-info -->
                     </div><!-- ad-item -->						
@@ -146,6 +146,7 @@
 
     </div><!-- conainer -->
 </div><!-- page -->
+
 
 
     

@@ -1,6 +1,6 @@
 @extends('welcome')
 
-@section('title','Home')
+@section('title','Applicant Register')
 
 @section('css')
     
@@ -15,67 +15,82 @@
             <div class="user-account job-user-account">
                 <h2>Create An Account</h2>
                     <ul class="nav nav-tabs text-center" role="tablist">
-                        <li role="presentation"><a class="active" href="#find-job" aria-controls="find-job" role="tab" data-toggle="tab">Find A Job</a></li>
-                        <li role="presentation"><a href="#post-job" aria-controls="post-job" role="tab" data-toggle="tab">Post A Job</a></li>
+                        <li role="presentation"><a @if(request()->is('register')) class="active" @endif href="{{ route('register') }}">Find A Job</a></li>
+                        <li role="presentation"><a href="{{ route('employer.register') }}">Post A Job</a></li>
                     </ul>
 
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active show" id="find-job">
-                            <form action="#">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Name" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email Id">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Confirm Password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Mobile Number">
-                                </div>
-                                <!-- select -->
-                                <select class="form-control">
-                                    <option value="#">Select City</option>
-                                    <option value="#">London UK</option>
-                                    <option value="#">Newyork, USA</option>
-                                    <option value="#">Seoul, Korea</option>
-                                    <option value="#">Beijing, China</option>
-                                </select><!-- select -->
+                        <div role="tabpanel">
+                            <form action="{{ route('register') }}" method="post">
+                                @csrf
 
-                                <div class="checkbox">
-                                    <label class="pull-left checked" for="signing"><input type="checkbox" name="signing" id="signing"> By signing up for an account you agree to our Terms and Conditions </label>
-                                </div><!-- checkbox -->	
-                                <button type="submit" class="btn">Registration</button>	
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <input type="text" name="first_name" class="form-control {{ $errors->has('first_name') ? ' is-invalid' : '' }}" value="" placeholder="First Name">
+
+                                        @if ($errors->has('first_name'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('first_name') }}</strong>
+                                            </span>
+                                        @endif
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="last_name" class="form-control {{ $errors->has('last_name') ? ' is-invalid' : '' }}" value="" placeholder="Last Name">
+
+                                        @if ($errors->has('last_name'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('last_name') }}</strong>
+                                            </span>
+                                        @endif
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <input type="text" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="" placeholder="Email">
+
+                                        @if ($errors->has('email'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <input type="password" name="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" value="" placeholder="Password">
+
+                                        @if ($errors->has('password'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            </span>
+                                        @endif
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <input type="password" name="password_confirmation" class="form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" value="" placeholder="Confirm Password">
+
+                                        @if ($errors->has('password'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            </span>
+                                        @endif
+
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn">Registration</button>
                             </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="post-job">
-                            <form action="#">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Employer Name" >
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email Id">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Confirm Password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Contact Number">
-                                </div>
-                                <div class="checkbox">
-                                    <label class="pull-left checked" for="signing-2"><input type="checkbox" name="signing-2" id="signing-2">By signing up for an account you agree to our Terms and Conditions</label>
-                                </div><!-- checkbox -->	
-                                <button type="submit" class="btn">Registration</button>	
-                            </form>
-                        </div>
-                    </div>				
+
+                    </div>
             </div>
         </div><!-- user-login -->	
     </div><!-- container -->

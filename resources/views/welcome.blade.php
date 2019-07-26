@@ -23,6 +23,9 @@
 	<!-- font -->
 	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700,300' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Signika+Negative:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+
+
     @yield('css')
 
 	<!-- icons -->
@@ -48,7 +51,6 @@
 
     @yield('content')
 	
-	
     @include('partial._footer')
 	
     <!-- JS -->
@@ -58,6 +60,8 @@
     <script src="{{ asset('asset/js/price-range.js') }}"></script>   
     <script src="{{ asset('asset/js/main.js') }}"></script>
     <script src="{{ asset('asset/js/switcher.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+
     @yield('js')
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -68,7 +72,30 @@
 	  ga('create', 'UA-73239902-1', 'auto');
 	  ga('send', 'pageview');
 
-	</script>	
+	</script>
+
+    <script>
+
+        @if(session()->get('message'))
+        swal({
+            title: "Success!",
+            text: "{{ session()->get('message') }}",
+            type: "success",
+            timer: 3000
+        });
+        @endif
+
+        @if(session()->get('error'))
+        swal({
+            title: "Error!",
+            text: "{{ session()->get('error') }}",
+            type: "error",
+            timer: 3000
+        });
+        @endif
+
+    </script>
+
   </body>
 
 <!-- Mirrored from demo.themeregion.com/jobs/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Jul 2019 15:07:24 GMT -->

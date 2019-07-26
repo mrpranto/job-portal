@@ -4,10 +4,16 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Employer extends Model
+class Employer extends Authenticatable
 {
+    protected $guard = 'employer';
     protected $guarded = [];
+
+    protected $fillable = [
+        'first_name', 'last_name', 'business_name', 'company_name', 'email', 'password',
+    ];
 
     public static function boot()
     {

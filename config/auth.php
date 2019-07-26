@@ -38,12 +38,23 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'applicants',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'applicants',
+            'hash' => false,
+        ],
+
+        'employer' => [
+            'driver' => 'session',
+            'provider' => 'employers',
+        ],
+
+        'employer_api' => [
+            'driver' => 'token',
+            'provider' => 'employers',
             'hash' => false,
         ],
     ],
@@ -71,6 +82,16 @@ return [
             'model' => App\User::class,
         ],
 
+        'applicants' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Applicant::class,
+        ],
+
+        'employers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Employer::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -95,6 +116,18 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'applicants' => [
+            'provider' => 'applicants',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'employers' => [
+            'provider' => 'employers',
             'table' => 'password_resets',
             'expire' => 60,
         ],
