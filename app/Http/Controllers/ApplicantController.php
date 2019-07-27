@@ -32,8 +32,8 @@ class ApplicantController extends Controller
         return [
 
             'skill' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png|max:1024',
-            'resume' => 'required|mimes:pdf,docx|max:1024',
+            'image' => 'required|mimes:jpg,jpeg,png|image|max:1024',
+            'resume' => 'required|mimes:pdf,docx|file|max:1024',
 
         ];
 
@@ -105,8 +105,8 @@ class ApplicantController extends Controller
         return [
 
             'skill' => 'required',
-            'image' => 'mimes:jpg,jpeg,png|max:1024',
-            'resume' => 'mimes:pdf,docx|max:1024',
+            'image' => 'mimes:jpg,jpeg,png|image|size:1024',
+            'resume' => 'mimes:pdf,docx|file|size:1024',
 
         ];
 

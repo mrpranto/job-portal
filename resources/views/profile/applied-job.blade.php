@@ -54,6 +54,7 @@
                                     <th>Salary</th>
                                     <th>Location</th>
                                     <th>Company Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,10 +62,11 @@
                             @foreach($appliedJobs as $key => $appliedJob)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td>{{ $appliedJob->job->title }}</td>
+                                    <td><a href="{{ route('job.details',$appliedJob->job_id) }}">{{ $appliedJob->job->title }}</a></td>
                                     <td>{{ $appliedJob->job->salary }}</td>
                                     <td>{{ $appliedJob->job->location }}</td>
                                     <td>{{ $appliedJob->employer->company_name }}</td>
+                                    <td><a href="{{ route('job.details',$appliedJob->job_id) }}"><i class="fa fa-eye"></i> View Job</a> </td>
                                 </tr>
                             @endforeach
 

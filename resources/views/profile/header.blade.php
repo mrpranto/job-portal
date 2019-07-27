@@ -6,7 +6,7 @@
         @else
             <img class="img-fluid" src="{{ asset('asset/images/user.jpg') }}" width="80px" alt="Image">
         @endif
-        
+
     </div>
     <div class="user">
         <h2>Hello, <a href="#">{{ auth()->user()->first_name .' '. auth()->user()->last_name }}</a></h2>
