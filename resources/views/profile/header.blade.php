@@ -1,6 +1,12 @@
 <div class="user-profile">
     <div class="user-images">
-        <img src="{{ asset('asset/images/user.jpg') }}" alt="User Images" class="img-fluid">
+
+        @if(auth()->user()->profile)
+            <img class="img-fluid" src="@if(auth()->user()->profile->image == 'default.png') {{ asset('asset/uploads/default.png') }} @else {{ asset('uploads/image/'.auth()->user()->profile->image) }} @endif " width="80px" alt="Image">
+        @else
+            <img class="img-fluid" src="{{ asset('asset/images/user.jpg') }}" width="80px" alt="Image">
+        @endif
+        
     </div>
     <div class="user">
         <h2>Hello, <a href="#">{{ auth()->user()->first_name .' '. auth()->user()->last_name }}</a></h2>
