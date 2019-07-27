@@ -25,4 +25,11 @@ class JobApplyController extends Controller
         return redirect()->back()->with('message','Job Apply Successful');
     }
 
+
+    public function applied_job(){
+
+        $appliedJobs = JobApply::with('job','employer')->where('applicant_id',auth()->id())->get();
+        return view('profile.applied-job',compact('appliedJobs'));
+    }
+
 }

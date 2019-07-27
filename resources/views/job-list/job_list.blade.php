@@ -53,7 +53,7 @@
                                                 <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>{{ $job->country }}</a></li>
                                                 <li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ $job->job_type }}</a></li>
                                                 <li><a href="#"><i class="fa fa-money" aria-hidden="true"></i>{{ $job->salary }}</a></li>
-                                                <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>{{ $job->post_name }}</a></li>
+                                                <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Posted: {{ $job->created_at->diffForHumans() }}</a></li>
                                             </ul>
                                         </div><!-- ad-meta -->
                                     </div><!-- ad-info -->

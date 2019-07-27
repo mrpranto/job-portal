@@ -26,7 +26,7 @@ class WelcomeController extends Controller
 
    public function job_list(){
 
-       $jobs = Job::with('employer')->paginate(10);
+       $jobs = Job::with('employer')->orderBy('id','desc')->paginate(10);
        return view('job-list.job_list',compact('jobs'));
    }
 

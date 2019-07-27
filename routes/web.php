@@ -26,6 +26,7 @@ Route::group([ 'middleware' => 'auth' ], function (){
     Route::post('add-resume', 'ApplicantController@addResume')->name('add.resume');
     Route::post('update-resume', 'ApplicantController@updateResume')->name('updated.resume');
     Route::post('apply-job', 'JobApplyController@apply_job')->name('apply.job');
+    Route::get('applied-job', 'JobApplyController@applied_job')->name('applied.job');
 });
 
 
