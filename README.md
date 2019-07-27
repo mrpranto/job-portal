@@ -1,6 +1,6 @@
 
 # Job Portal 
-This is a job portal for job demo project, It's created by php framework Larave.
+This is a job portal for job demo project, It's created by php framework Laravel.
 
 ### Installing Process 
  
@@ -8,7 +8,7 @@ This is a job portal for job demo project, It's created by php framework Larave.
  - Open the .env file and edit the database name, root and password
  - Run the command "php artisan key:generate"
  - After generating key Ran again this command "php artisan migrate --seed"
- - You can Registe or Login 
+ - You can Register or Login 
  - Applicant Login credentials "prantoabir420@gmail.com", Password: "11223344"
  - Employer Login credentials "prantoabir1@gmail.com", Password: "11223344"
 
