@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Job;
+use App\Models\JobApply;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -175,6 +176,10 @@ class JobsController extends Controller
      */
     public function destroy($id)
     {
+        if (JobApply::where('job_id',$id)->first()){
+            return redirect()->back()->with('error','Job is not Deleted, Because this job already in use Job Apply.!');
+        }
+
         $job = Job::findOrFail($id);
         $job->delete();
 

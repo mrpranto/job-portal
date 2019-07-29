@@ -50,9 +50,11 @@
                 @endif
 
         <div class="section job-ad-item">
-
-            <a href="{{ url('/') }}" style="float: right"><i class="fa fa-backward"></i> Back</a>
-
+            @if($jobApply)
+            <a href="{{ route('job.list') }}" style="float: right"><i class="fa fa-backward"></i> Back</a>
+                @else
+                <a href="{{ url()->previous() }}" style="float: right"><i class="fa fa-backward"></i> Back</a>
+            @endif
             <div class="item-info">
 
                 <div class="ad-info">
