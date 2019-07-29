@@ -24,7 +24,7 @@ class EmployerDashboardController extends Controller
     public function applied_applicant(){
 
         $employer = auth()->id();
-        $applicantApplieds = JobApply::with('job')->select('job_id')->where('employer_id',$employer)->distinct()->orderBy('id','desc')->paginate(10);
+        $applicantApplieds = JobApply::with('job')->where('employer_id',$employer)->distinct()->orderBy('id','desc')->select('job_id')->paginate(20);
         return view('employer-dashboard.applied_applicant',compact('applicantApplieds'));
     }
 
